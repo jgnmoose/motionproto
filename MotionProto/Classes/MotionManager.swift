@@ -13,39 +13,32 @@ let MotionManagerSharedInstance = MotionManager()
 
 class MotionManager:CMMotionManager {
     class var sharedInstance:MotionManager {
-    return MotionManagerSharedInstance
+        return MotionManagerSharedInstance
     }
     
     func startMotionManager() {
-        if !self.deviceMotionActive {
-            self.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrameXArbitraryCorrectedZVertical, toQueue: NSOperationQueue.currentQueue(), withHandler: {
-                deviceManager, error in
-                
-                })
+        if !self.gyroActive {
+            self.startGyroUpdates()
         }
     }
     
     func stopMotionManager() {
-        if self.deviceMotionActive {
-            self.stopDeviceMotionUpdates()
+        if self.gyroActive {
+            self.stopGyroUpdates()
         }
     }
     
-    func radiansToDegrees(#radians:CGFloat, correction:CGFloat) -> CGFloat {
-        return (CGFloat(radians) * CGFloat(180.0 / M_PI) * correction)
+    
+    func radiansToDegrees(radians:CGFloat) -> CGFloat {
+        return (CGFloat(radians) * CGFloat(180.0 / M_PI))
     }
     
+    
     func updatePosition(node: SKNode) {
-        
-        if let data = self.deviceMotion {
+        if let data = self.gyroData {
+            let forceX = self.radiansToDegrees(CGFloat(-data.rotationRate.x / 2))
+            let forceY = self.radiansToDegrees(CGFloat(-data.rotationRate.y / 2))
             
-            let rollCorrection:CGFloat =  16.0
-            let pitchCorrection:CGFloat = 12.0
-            
-            let forceX = self.radiansToDegrees(radians: CGFloat(-data.rotationRate.x), correction: rollCorrection)
-            let forceY = self.radiansToDegrees(radians: CGFloat(-data.rotationRate.y), correction: pitchCorrection)
-            
-            node.physicsBody.applyForce(CGVectorMake(-0.2, -0.2))
             node.physicsBody.applyForce(CGVectorMake(forceX, forceY))
         }
     }

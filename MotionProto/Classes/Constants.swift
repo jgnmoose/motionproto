@@ -9,8 +9,8 @@
 import CoreGraphics
 
 let kDebug:Bool = true
-var kViewSize:CGSize!
 var kFontName = "Silom-Bold"
+var viewSize:CGSize!
 
 // MARK: Game Layers
 class GameLayer {

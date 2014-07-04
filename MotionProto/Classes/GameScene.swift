@@ -10,6 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     
+    var viewSize:CGSize!
     var ship = Player(imageNamed: "Ship")
     var startMessage = SKLabelNode(fontNamed: kFontName)
     
@@ -18,6 +19,7 @@ class GameScene: SKScene {
     }
     
     override func didMoveToView(view: SKView) {
+        viewSize = self.frame.size
         self.setupWorld()
     }
     
@@ -31,7 +33,7 @@ class GameScene: SKScene {
     }
    
     override func update(currentTime: CFTimeInterval) {
-        if MotionManagerSharedInstance.deviceMotionActive {
+        if MotionManagerSharedInstance.gyroActive {
             MotionManagerSharedInstance.updatePosition(ship)
         }
     }
@@ -50,12 +52,13 @@ class GameScene: SKScene {
         startMessage.fontSize = 64.0
         startMessage.fontColor = SKColor.whiteColor()
         startMessage.text = "Tap to Start"
-        startMessage.position = CGPoint(x: kViewSize.width / 2, y: kViewSize.height / 2)
+        startMessage.position = CGPoint(x: viewSize.width / 2, y: viewSize.height / 2)
         startMessage.zPosition = GameLayer.Interface
         self.addChild(startMessage)
     }
     
     func startGame() {
+        startMessage.hidden = true
         MotionManagerSharedInstance.startMotionManager()
     }
 }

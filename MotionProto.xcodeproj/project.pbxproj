@@ -66,6 +66,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FC62D3A1966506B00D33CAC /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3FE0ACF419664B0F0026398F /* MotionManager.swift */,
+				3FE0ACF119664B0F0026398F /* Constants.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		3FC62D3B1966508000D33CAC /* Actors */ = {
+			isa = PBXGroup;
+			children = (
+				3FE0ACF519664B0F0026398F /* Player.swift */,
+			);
+			name = Actors;
+			sourceTree = "<group>";
+		};
+		3FC62D3C1966508A00D33CAC /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3FE0ACF219664B0F0026398F /* GameScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		3FE0ACB61966447D0026398F = {
 			isa = PBXGroup;
 			children = (
@@ -132,11 +157,10 @@
 		3FE0ACEF19664B0F0026398F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3FC62D3C1966508A00D33CAC /* Scenes */,
+				3FC62D3B1966508000D33CAC /* Actors */,
+				3FC62D3A1966506B00D33CAC /* Utilities */,
 				3FE0AD0319664B310026398F /* ViewController */,
-				3FE0ACF119664B0F0026398F /* Constants.swift */,
-				3FE0ACF219664B0F0026398F /* GameScene.swift */,
-				3FE0ACF419664B0F0026398F /* MotionManager.swift */,
-				3FE0ACF519664B0F0026398F /* Player.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -471,6 +495,7 @@
 				3FE0ACE11966447D0026398F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FE0ACE21966447D0026398F /* Build configuration list for PBXNativeTarget "MotionProtoTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +504,7 @@
 				3FE0ACE41966447D0026398F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         let skView = self.view as SKView
-        kViewSize = skView.bounds.size
+        viewSize = skView.bounds.size
         
         if kDebug {
             skView.showsDrawCount = true
@@ -27,7 +27,7 @@ class GameViewController: UIViewController {
         
         skView.ignoresSiblingOrder = true
         
-        let gameScene = GameScene(size: kViewSize)
+        let gameScene = GameScene(size: viewSize)
         gameScene.scaleMode = SKSceneScaleMode.AspectFill
         skView.presentScene(gameScene)
     }

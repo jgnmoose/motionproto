@@ -10,7 +10,7 @@ import SpriteKit
 
 class Player:SKSpriteNode {
     
-    let startPosition = CGPoint(x: kViewSize.width / 2, y: kViewSize.height / 2)
+    let startPosition = CGPoint(x: viewSize.width / 2, y: viewSize.height / 2)
     let namePlayer = "Player"
     
     init(texture: SKTexture!) {
@@ -46,6 +46,7 @@ class Player:SKSpriteNode {
         // Physics
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.height / 2)
         self.physicsBody.dynamic = true
+        self.physicsBody.allowsRotation = false
         self.physicsBody.linearDamping = 1.0 
         self.physicsBody.angularDamping = 1.0
         self.physicsBody.affectedByGravity = false
