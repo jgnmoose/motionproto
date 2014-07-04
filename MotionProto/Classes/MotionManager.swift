@@ -12,32 +12,41 @@ import SpriteKit
 let MotionManagerSharedInstance = MotionManager()
 
 class MotionManager:CMMotionManager {
+    
+    var isUpdating = false
+    
     class var sharedInstance:MotionManager {
         return MotionManagerSharedInstance
     }
     
     func startMotionManager() {
-        if !self.gyroActive {
-            self.startGyroUpdates()
+        if !self.deviceMotionActive {
+            self.deviceMotionUpdateInterval = 0.1
+            self.startDeviceMotionUpdatesUsingReferenceFrame(CMAttitudeReferenceFrameXArbitraryCorrectedZVertical, toQueue: NSOperationQueue.currentQueue(), withHandler: {
+                    deviceManager, error in
+                self.isUpdating = true
+            })
         }
     }
     
     func stopMotionManager() {
-        if self.gyroActive {
-            self.stopGyroUpdates()
+        if self.deviceMotionActive {
+            self.stopDeviceMotionUpdates()
+            self.isUpdating = false
         }
     }
     
     
-    func radiansToDegrees(radians:CGFloat) -> CGFloat {
-        return (CGFloat(radians) * CGFloat(180.0 / M_PI))
+    func radiansToDegrees(radians:Double) -> CGFloat {
+        return CGFloat(radians * 180 / M_PI)
     }
     
     
     func updatePosition(node: SKNode) {
-        if let data = self.gyroData {
-            let forceX = self.radiansToDegrees(CGFloat(-data.rotationRate.x / 2))
-            let forceY = self.radiansToDegrees(CGFloat(-data.rotationRate.y / 2))
+        if let data = self.deviceMotion {
+            
+            let forceX = self.radiansToDegrees(-data.rotationRate.x / 2)
+            let forceY = self.radiansToDegrees(-data.rotationRate.y / 2)
             
             node.physicsBody.applyForce(CGVectorMake(forceX, forceY))
         }

@@ -33,7 +33,7 @@ class GameScene: SKScene {
     }
    
     override func update(currentTime: CFTimeInterval) {
-        if MotionManagerSharedInstance.gyroActive {
+        if MotionManagerSharedInstance.isUpdating {
             MotionManagerSharedInstance.updatePosition(ship)
         }
     }
