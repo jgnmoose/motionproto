@@ -10,9 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    // Class Properties
     var ship = Player(imageNamed: "Ship")
-    
     var startMessage = SKLabelNode(fontNamed: kFontName)
     
     init(size: CGSize) {
@@ -24,6 +22,12 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        let touch:UITouch = touches.anyObject() as UITouch
+        let touchLocation = touch.locationInNode(self)
+        
+        if startMessage.containsPoint(touchLocation) {
+            self.startGame()
+        }
     }
    
     override func update(currentTime: CFTimeInterval) {
@@ -41,6 +45,14 @@ class GameScene: SKScene {
         
         // Player
         self.addChild(ship)
+        
+        // Message
+        startMessage.fontSize = 64.0
+        startMessage.fontColor = SKColor.whiteColor()
+        startMessage.text = "Tap to Start"
+        startMessage.position = CGPoint(x: kViewSize.width / 2, y: kViewSize.height / 2)
+        startMessage.zPosition = GameLayer.Interface
+        self.addChild(startMessage)
     }
     
     func startGame() {
