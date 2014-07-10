@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2C39CE196E1C90002D791F /* GameTextures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F2C39CD196E1C90002D791F /* GameTextures.swift */; };
 		3FE0ACCE1966447D0026398F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE0ACCC1966447D0026398F /* Main.storyboard */; };
 		3FE0ACD01966447D0026398F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE0ACCF1966447D0026398F /* Images.xcassets */; };
 		3FE0ACDC1966447D0026398F /* MotionProtoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0ACDB1966447D0026398F /* MotionProtoTests.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F2C39CD196E1C90002D791F /* GameTextures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTextures.swift; sourceTree = "<group>"; };
 		3FE0ACBF1966447D0026398F /* MotionProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE0ACC31966447D0026398F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FE0ACCD1966447D0026398F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		3FC62D3A1966506B00D33CAC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3F2C39CD196E1C90002D791F /* GameTextures.swift */,
 				3FE0ACF419664B0F0026398F /* MotionManager.swift */,
 				3FE0ACF119664B0F0026398F /* Constants.swift */,
 			);
@@ -303,6 +306,7 @@
 				3FE0ACF919664B0F0026398F /* GameViewController.swift in Sources */,
 				3FE0ACFA19664B0F0026398F /* MotionManager.swift in Sources */,
 				3FE0ACF819664B0F0026398F /* GameScene.swift in Sources */,
+				3F2C39CE196E1C90002D791F /* GameTextures.swift in Sources */,
 				3FE0ACF619664B0F0026398F /* AppDelegate.swift in Sources */,
 				3FE0ACFB19664B0F0026398F /* Player.swift in Sources */,
 				3FE0ACF719664B0F0026398F /* Constants.swift in Sources */,

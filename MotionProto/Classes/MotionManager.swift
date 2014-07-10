@@ -46,11 +46,8 @@ class MotionManager:CMMotionManager {
         if let data = self.deviceMotion {
             let forceX = self.radiansToDegrees(-data.rotationRate.x / 2)
             let forceY = self.radiansToDegrees(-data.rotationRate.y / 2)
-            let forceZ = self.radiansToDegrees(data.rotationRate.z / 16)
             
             node.physicsBody.applyForce(CGVectorMake(forceX, forceY))
-            
-            node.runAction(SKAction.rotateToAngle(forceZ, duration: 0.1))
         }
     }
 }

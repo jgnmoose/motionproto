@@ -13,18 +13,6 @@ class Player:SKSpriteNode {
     let startPosition = CGPoint(x: viewSize.width / 2, y: viewSize.height / 2)
     let namePlayer = "Player"
     
-    init(texture: SKTexture!) {
-        super.init(texture: texture)
-        
-        self.playerSetup()
-    }
-    
-    init(imageNamed name: String!) {
-        super.init(imageNamed: name)
-        
-        self.playerSetup()
-    }
-    
     init(texture: SKTexture!, color: UIColor!, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         

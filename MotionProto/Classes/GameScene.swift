@@ -11,7 +11,7 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var viewSize:CGSize!
-    var ship = Player(imageNamed: "Ship")
+    var ship:Player!
     var startMessage = SKLabelNode(fontNamed: kFontName)
     
     init(size: CGSize) {
@@ -46,6 +46,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.backgroundColor = SKColor.blackColor()
         
         // Player
+        let texture = GameTexturesSharedInstance.textureAtlas.textureNamed("Ship")
+        ship = Player(texture: texture, color: SKColor.whiteColor(), size: texture.size())
         self.addChild(ship)
         
         // Message
@@ -53,7 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         startMessage.fontColor = SKColor.whiteColor()
         startMessage.text = "Tap to Start"
         startMessage.position = CGPoint(x: viewSize.width / 2, y: viewSize.height / 2)
-        startMessage.zPosition = GameLayer.Interface
+        startMessage.zPosition = GameLayer.Background
         self.addChild(startMessage)
     }
     
